@@ -280,49 +280,47 @@ python -m http.server 8000
 ![GET All Books](ss/Postman_6jytvtOo51.png)
 
 #### GET Book by ID
-![GET Book by ID](ss/Postman_8SCyJalPXK.png)
-
-#### POST Add Book (Admin)
-![POST Add Book](ss/Postman_CPfxE5yqBV.png)
-
-#### PUT Update Book (Admin)
-![PUT Update Book](ss/Postman_E6Cgs9Sl5I.png)
-
-#### DELETE Book (Admin)
-![DELETE Book](ss/Postman_Emz0vCfQNo.png)
-
-#### POST Borrow Book (User)
 ![POST Borrow Book](ss/Postman_Ri3trE1svu.png)
 
-#### Borrow Response with Geolocation
+#### POST Add Book (Admin)
+![API Test 3](ss/Postman_gZw73sjDdG.png)
+
+#### PUT Update Book (Admin)
 ![Borrow Response](ss/Postman_UwnVg3npx5.png)
 
-#### Additional API Tests
+#### DELETE Book (Admin)
+![POST Add Book](ss/Postman_CPfxE5yqBV.png)
+
+#### POST Borrow Book with Geolocation (User)
 ![API Test 1](ss/Postman_cOABHfrQlF.png)
+
+#### Additional API Tests
 ![API Test 2](ss/Postman_eElwFAQUz0.png)
-![API Test 3](ss/Postman_gZw73sjDdG.png)
+![PUT Update Book](ss/Postman_E6Cgs9Sl5I.png)
+![DELETE Book](ss/Postman_Emz0vCfQNo.png)
+![GET Book by ID](ss/Postman_8SCyJalPXK.png)
 
 ---
 
 ### 2. Tampilan Web
 
-#### Homepage - Hero Section
-![Homepage Hero](ss/msedge_J1R3V4cQ2t.png)
+#### Homepage User
+![User Interface](ss/msedge_4w7JquE3rn.jpg)
 
 #### Books Collection Grid
-![Books Grid](ss/msedge_N5B078IVKd.png)
+![Edit Modal](ss/msedge_URcpODn9AB.jpg)
 
 #### Borrow Modal with Map
-![Borrow Modal](ss/msedge_OpXD7jQYU5.png)
+![Homepage Hero](ss/msedge_J1R3V4cQ2t.png)
 
 #### Admin Panel
 ![Admin Panel](ss/msedge_3SJQtlORxp.jpg)
 
-#### User Interface
-![User Interface](ss/msedge_4w7JquE3rn.jpg)
-
 #### Edit Modal
-![Edit Modal](ss/msedge_URcpODn9AB.jpg)
+![Books Grid](ss/msedge_N5B078IVKd.png)
+
+#### ADD New Book 
+![Borrow Modal](ss/msedge_OpXD7jQYU5.png)
 
 ---
 
