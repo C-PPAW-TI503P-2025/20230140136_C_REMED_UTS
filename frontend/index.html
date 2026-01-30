@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wisdom Library - Divine Collection of Knowledge</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Background Overlay -->
+    <div class="divine-overlay"></div>
+
+    <!-- Navigation -->
+    <nav class="sacred-nav">
+        <div class="nav-container">
+            <h1 class="logo">📖 Wisdom Library</h1>
+            <div class="role-switch">
+                <button class="role-btn active" data-role="user">👤 User</button>
+                <button class="role-btn" data-role="admin">⚜️ Admin</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">The Wisdom Library</h1>
+            <p class="hero-subtitle">Where Divine Wisdom Meets Modern Knowledge</p>
+            <div class="hero-divider"></div>
+            <p class="hero-description">
+                ----------------------------------------------------------------------------------
+            </p>
+        </div>
+    </section>
+
+    <!-- Books Collection Section -->
+    <section class="books-section">
+        <div class="section-header">
+            <h2 class="section-title">Divine Collection</h2>
+            <p class="section-subtitle">Sacred texts and timeless wisdom</p>
+        </div>
+
+        <div class="books-grid" id="booksGrid">
+            <!-- Books will be loaded here dynamically -->
+            <div class="loading-state">
+                <div class="divine-loader"></div>
+                <p>Loading texts...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admin Panel (Hidden by default) -->
+    <section class="admin-panel" id="adminPanel" style="display: none;">
+        <div class="panel-container">
+            <h2 class="panel-title">⚜️ Admin Sanctuary</h2>
+            <div class="admin-form glass-card">
+                <h3>Add New Book</h3>
+                <form id="addBookForm">
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input type="text" id="bookTitle" required placeholder="Enter book title">
+                    </div>
+                    <div class="form-group">
+                        <label>Author</label>
+                        <input type="text" id="bookAuthor" required placeholder="Enter author name">
+                    </div>
+                    <div class="form-group">
+                        <label>Stock</label>
+                        <input type="number" id="bookStock" required min="0" value="1" placeholder="Available copies">
+                    </div>
+                    <button type="submit" class="btn-primary">✨ Add to Collection</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Borrow Modal -->
+    <div class="modal" id="borrowModal">
+        <div class="modal-content glass-card">
+            <span class="modal-close">&times;</span>
+            <h2 class="modal-title">Borrow Text</h2>
+            <div id="borrowBookInfo"></div>
+            <form id="borrowForm">
+                <div class="form-group">
+                    <label>Your ID</label>
+                    <input type="number" id="userId" required placeholder="Enter your user ID">
+                </div>
+                <div class="map-container">
+                    <label>📍 Your Location</label>
+                    <div id="borrowMap" class="location-map"></div>
+                    <p class="location-note">Your location will be recorded for this transaction</p>
+                </div>
+                <button type="submit" class="btn-primary">🙏 Borrow Book</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Edit Modal -->
+    <div class="modal" id="editModal">
+        <div class="modal-content glass-card">
+            <span class="modal-close">&times;</span>
+            <h2 class="modal-title">Edit Book</h2>
+            <form id="editForm">
+                <input type="hidden" id="editBookId">
+                <div class="form-group">
+                    <label>Title</label>
+                    <input type="text" id="editTitle" required>
+                </div>
+                <div class="form-group">
+                    <label>Author</label>
+                    <input type="text" id="editAuthor" required>
+                </div>
+                <div class="form-group">
+                    <label>Stock</label>
+                    <input type="number" id="editStock" required min="0">
+                </div>
+                <button type="submit" class="btn-primary">💫 Update Book</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div class="toast" id="toast"></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
