@@ -1,0 +1,324 @@
+{
+    "info": {
+        "name": "Library System API",
+        "description": "Collection untuk testing Library System with Geolocation API",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Public Endpoints",
+            "item": [
+                {
+                    "name": "Get All Books",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/books",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000",
+                            "path": [
+                                "api",
+                                "books"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Book by ID",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/books/1",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000",
+                            "path": [
+                                "api",
+                                "books",
+                                "1"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Admin Endpoints",
+            "item": [
+                {
+                    "name": "Create Book",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "x-user-role",
+                                "value": "admin",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"title\": \"Clean Code\",\n  \"author\": \"Robert C. Martin\",\n  \"stock\": 10\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:3000/api/books",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000",
+                            "path": [
+                                "api",
+                                "books"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Update Book",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "x-user-role",
+                                "value": "admin",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"title\": \"Clean Code - Updated\",\n  \"stock\": 15\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:3000/api/books/1",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000",
+                            "path": [
+                                "api",
+                                "books",
+                                "1"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Delete Book",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "x-user-role",
+                                "value": "admin",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "http://localhost:3000/api/books/1",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000",
+                            "path": [
+                                "api",
+                                "books",
+                                "1"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "User Endpoints",
+            "item": [
+                {
+                    "name": "Borrow Book with Geolocation",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "x-user-role",
+                                "value": "user",
+                                "type": "text"
+                            },
+                            {
+                                "key": "x-user-id",
+                                "value": "1",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"bookId\": 1,\n  \"latitude\": -6.2088,\n  \"longitude\": 106.8456\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:3000/api/borrow",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000",
+                            "path": [
+                                "api",
+                                "borrow"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Error Cases",
+            "item": [
+                {
+                    "name": "Create Book - No Title (Validation Error)",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "x-user-role",
+                                "value": "admin",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"title\": \"\",\n  \"author\": \"Test Author\",\n  \"stock\": 5\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:3000/api/books",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000",
+                            "path": [
+                                "api",
+                                "books"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Create Book - No Admin Header (403)",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"title\": \"Test Book\",\n  \"author\": \"Test Author\",\n  \"stock\": 5\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:3000/api/books",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000",
+                            "path": [
+                                "api",
+                                "books"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Book - Not Found (404)",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/books/9999",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000",
+                            "path": [
+                                "api",
+                                "books",
+                                "9999"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Borrow Book - Invalid Coordinates",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "x-user-role",
+                                "value": "user",
+                                "type": "text"
+                            },
+                            {
+                                "key": "x-user-id",
+                                "value": "1",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"bookId\": 1,\n  \"latitude\": 999,\n  \"longitude\": 999\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:3000/api/borrow",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000",
+                            "path": [
+                                "api",
+                                "borrow"
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
